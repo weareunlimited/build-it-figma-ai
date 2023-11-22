@@ -1,4 +1,4 @@
-export const OPENAI_API_KEY = "REPLACE_ME";
+export const OPENAI_API_KEY = "__OPENAI_API_KEY__";
 
 export let drag = `<style>
 #corner {
