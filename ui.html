@@ -1,12 +1,22 @@
+<iframe id="rendered-html" style="width: 100%; height: 50%;"></iframe>
+<textarea id="code-display" readonly style="width: 100%; height: 50%;"></textarea>
+
 <script>
   onmessage = function (e) {
     let message = e.data.pluginMessage;
 
     if (message.type == "renderHTML") {
       let html = message.html;
-      document.open();
-      document.write(html);
-      document.close();
+
+      // Render HTML code in iframe
+      let iframe = document.getElementById('rendered-html');
+      let doc = iframe.contentWindow.document;
+      doc.open();
+      doc.write(html);
+      doc.close();
+
+      // Set value of textarea to generated HTML code
+      document.getElementById('code-display').value = html;
     }
   };
 </script>
